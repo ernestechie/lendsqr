@@ -1,0 +1,103 @@
+@import '../../global/variables';
+
+.login_page {
+  display: grid;
+  grid-template-columns: 1;
+  min-height: 100vh;
+
+  &_grid_containers {
+    padding: 3rem 2rem;
+
+    &:nth-child(1) {
+      display: none;
+    }
+
+    &:nth-child(2) {
+      align-items: center;
+    }
+  }
+}
+
+.logo {
+  padding: 3rem;
+}
+
+.pablo_sign_in {
+  display: block;
+  width: 100%;
+}
+
+.welcome {
+  margin-bottom: 40px;
+
+  &_text {
+    font-size: 40px;
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+}
+
+.login_form {
+  margin-top: 40px;
+  width: 100%;
+  max-width: 440px;
+  margin: auto;
+
+  .input_field {
+    border: 2px solid $secondary-light;
+    margin: 12px 0;
+    font-size: 14px;
+    width: 100%;
+    border-radius: 5px;
+  }
+
+  .input_group {
+    position: relative;
+
+    .show_password_btn {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+
+      font-size: 12px;
+      cursor: pointer;
+      color: $accent-color;
+      font-weight: 600;
+    }
+  }
+
+  .forgotten_password {
+    margin: 14px 0;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .login_btn {
+    width: 100%;
+    margin: 18px 0;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #fff;
+    padding: 14px;
+    font-weight: 600;
+    border-radius: 8px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .login_page {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    &_grid_containers {
+      padding: 3rem;
+
+      &:nth-child(1) {
+        display: flex;
+        padding: 4rem 2rem;
+        align-items: center;
+        height: 60%;
+      }
+    }
+  }
+}

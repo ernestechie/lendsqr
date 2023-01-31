@@ -1,0 +1,65 @@
+@import '../src/global/variables';
+
+// CSS RESETS
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+}
+
+input {
+  display: block;
+  padding: 1rem;
+  font-family: inherit !important;
+  font-size: 16px;
+  outline: none;
+}
+
+.btn {
+  display: block;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Work Sans', sans-serif !important;
+  background: #fff;
+}
+
+@media (prefers-color-scheme: light) {
+}
+
+// TEXT SIZES
+
+.text-lg {
+  font-size: 20px;
+}
+
+// TEXT COLOURS
+.text-accent {
+  color: $accent-color;
+}
+.text-primary {
+  color: $primary-color;
+}
+.text-secondary {
+  color: $secondary-color;
+}
+
+// BG COLOURS
+.bg-accent {
+  background: $accent-color;
+}
+.bg-primary {
+  background: $primary-color;
+}
+.bg-secondary {
+  background: $secondary-color;
+}
