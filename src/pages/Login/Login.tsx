@@ -33,12 +33,14 @@ const Login = () => {
             <input
               type='email'
               placeholder='Email'
+              title='login email'
               className={classes.input_field}
             />
             <div className={classes.input_group}>
               <input
                 type={showPassword ? 'text' : 'password'}
                 placeholder='Password'
+                title='login password'
                 className={classes.input_field}
               />
               <p

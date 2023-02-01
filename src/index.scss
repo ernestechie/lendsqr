@@ -20,7 +20,8 @@ input {
   outline: none;
 }
 
-.btn {
+.btn,
+button {
   display: block;
   outline: none;
   border: none;
@@ -39,6 +40,10 @@ body {
 }
 
 @media (prefers-color-scheme: light) {
+}
+
+.underline {
+  text-decoration: underline;
 }
 
 // TEXT SIZES

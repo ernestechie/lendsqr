@@ -4,7 +4,7 @@
   top: 0;
   left: 0;
   background: #fff;
-  padding: 30px 32px;
+  padding: 30px 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -21,6 +21,10 @@
 }
 
 @media screen and (min-width: 800px) {
+  .nav {
+    padding: 30px 32px;
+  }
+
   .logo_mobile {
     display: none;
   }

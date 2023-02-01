@@ -1,0 +1,41 @@
+@import '../../../global/variables';
+
+.search {
+  width: 70%;
+  position: relative;
+  overflow: hidden;
+
+  &_input {
+    margin: auto;
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 14px;
+    border: 2px solid $secondary-light;
+    border-radius: 8px;
+  }
+
+  &_button {
+    display: block;
+    background: $accent-color;
+    height: 44px;
+    width: 44px;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 0 8px 8px 0;
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .search {
+    width: 40%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .search {
+    width: 30%;
+  }
+}

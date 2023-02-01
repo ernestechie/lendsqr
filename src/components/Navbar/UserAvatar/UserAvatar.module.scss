@@ -1,0 +1,39 @@
+@import '../../../global/variables';
+
+.user {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+
+  p,
+  svg {
+    display: none;
+  }
+
+  &_avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+
+    &_image {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+    }
+    p {
+      font-weight: 600;
+    }
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .user {
+    p,
+    svg {
+      display: block;
+    }
+  }
+}

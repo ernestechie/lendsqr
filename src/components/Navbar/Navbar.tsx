@@ -2,6 +2,7 @@ import React from 'react';
 import logoDesktop from '../../assets/logo.svg';
 import logoMobile from '../../../public/favicon.svg';
 import classes from './Navbar.module.scss';
+import { SearchBar, UserAvatar } from '../../';
 
 const Navbar = () => {
   return (
@@ -16,8 +17,8 @@ const Navbar = () => {
         alt='Lendsqr desktop logo'
         className={`${classes.logo_desktop}`}
       />
-      <p>SEARCH BAR</p>
-      <p>USER AVATAR</p>
+      <SearchBar />
+      <UserAvatar />
     </nav>
   );
 };
