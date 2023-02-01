@@ -4,8 +4,7 @@ import { DashboardLayout } from '../../';
 const Users = () => {
   return (
     <DashboardLayout>
-      <h1>DASHBOARD</h1>
-      <p>100 Users</p>
+      <p className={`text-xl text-primary`}>Users</p>
     </DashboardLayout>
   );
 };

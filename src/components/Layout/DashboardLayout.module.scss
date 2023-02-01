@@ -1,4 +1,13 @@
-.main_body {
-  padding: 1rem;
-  padding-top: 8rem;
+@import '../../global//variables';
+
+.main {
+  padding-top: 6rem;
+  display: flex;
+  justify-content: space-between;
+  // gap: 1rem;
+  background: $light-gray-color;
+
+  &_body {
+    padding: 3.5rem;
+  }
 }

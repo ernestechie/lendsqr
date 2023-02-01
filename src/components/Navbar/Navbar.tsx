@@ -1,6 +1,6 @@
 import React from 'react';
 import logoDesktop from '../../assets/logo.svg';
-import logoMobile from '../../../public/favicon.svg';
+import logoMobile from '../../assets/favicon.svg';
 import classes from './Navbar.module.scss';
 import { SearchBar, UserAvatar } from '../../';
 

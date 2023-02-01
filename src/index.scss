@@ -52,6 +52,14 @@ body {
   font-size: 20px;
 }
 
+.text-xl {
+  font-size: 24px;
+}
+
+.font-bold {
+  font-weight: 600;
+}
+
 // TEXT COLOURS
 .text-accent {
   color: $accent-color;
@@ -72,4 +80,17 @@ body {
 }
 .bg-secondary {
   background: $secondary-color;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $secondary-light;
+  border-radius: 16px;
 }

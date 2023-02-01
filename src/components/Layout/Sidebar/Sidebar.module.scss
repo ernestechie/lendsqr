@@ -1,0 +1,74 @@
+@import '../../../global/variables';
+
+.sidebar {
+  transition: 0.3s ease-out;
+  background: #fff;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.04);
+  padding: 2rem 0;
+  min-height: 100vh;
+
+  &_absolute {
+    position: absolute;
+    top: 1rem;
+    left: 0;
+    padding: 1rem 0;
+
+    .fixed {
+      height: 100%;
+      padding: 6rem 0;
+      position: fixed;
+      overflow-y: scroll;
+    }
+  }
+
+  .title {
+    font-size: 14px;
+    text-transform: uppercase;
+    color: $secondary-color;
+    padding: 12px 16px;
+    margin-top: 20px;
+    font-weight: 500;
+  }
+
+  &_link {
+    padding: 14px 0 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: 0.3s ease-in;
+    position: relative;
+
+    .label {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 4px;
+      background: $accent-color;
+      opacity: 0;
+      transition: 0.3s ease-in;
+    }
+
+    &:hover {
+      background: $accent-light;
+      transition: 0.3s ease-out;
+
+      .label {
+        opacity: 1;
+      }
+    }
+
+    &_name {
+      font-size: 16px;
+      color: $primary-color;
+      transition: 0.4s ease-in;
+    }
+
+    &_icon {
+      font-size: 18px;
+      color: $secondary-color;
+      transition: 0.4s ease-in;
+    }
+  }
+}
