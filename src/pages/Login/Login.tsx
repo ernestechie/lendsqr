@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import classes from './Login.module.scss';
 import logo from '../../assets/logo.svg';
 import pablo_sign_in from '../../assets/pablo-sign-in.svg';
 
 const Login = () => {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
 
   const toggleShowPassword = () => setShowPassword((prev) => !prev);
@@ -56,6 +57,7 @@ const Login = () => {
             <button
               type='button'
               className={`${classes.login_btn} btn bg-accent`}
+              onClick={() => navigate('/dashboard')}
             >
               Log in
             </button>

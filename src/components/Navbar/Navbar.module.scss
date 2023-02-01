@@ -1,0 +1,32 @@
+.nav {
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #fff;
+  padding: 30px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 3px 0px 20px rgba(0, 0, 0, 0.04);
+}
+
+.logo_desktop {
+  display: none;
+}
+
+.logo_mobile {
+  display: block;
+  width: 28px;
+}
+
+@media screen and (min-width: 800px) {
+  .logo_mobile {
+    display: none;
+  }
+
+  .logo_desktop {
+    display: block;
+    width: 144px;
+  }
+}

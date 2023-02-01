@@ -27,6 +27,11 @@ input {
   cursor: pointer;
 }
 
+html,
+html body {
+  overflow-x: hidden !important;
+}
+
 body {
   min-height: 100vh;
   font-family: 'Work Sans', sans-serif !important;

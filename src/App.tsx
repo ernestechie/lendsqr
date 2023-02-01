@@ -6,9 +6,9 @@ import { LoginPage, UserDetailsPage, UsersPage } from '.';
 function App() {
   return (
     <Routes>
-      <Route path='/login' element={<LoginPage />} />
-      <Route path='/users' element={<UsersPage />} />
-      <Route path='/users/:userID' element={<UserDetailsPage />} />
+      <Route path='/' element={<LoginPage />} />
+      <Route path='/dashboard' element={<UsersPage />} />
+      <Route path='/dashboard/:userID' element={<UserDetailsPage />} />
     </Routes>
   );
 }

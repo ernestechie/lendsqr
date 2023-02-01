@@ -1,11 +1,12 @@
 import React from 'react';
+import { DashboardLayout } from '../../';
 
 const Users = () => {
   return (
-    <div>
-      <h1>Users Page</h1>
+    <DashboardLayout>
+      <h1>DASHBOARD</h1>
       <p>100 Users</p>
-    </div>
+    </DashboardLayout>
   );
 };
 
