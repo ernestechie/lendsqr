@@ -39,11 +39,22 @@ const UsersContainer = (props: { users: Array<Object> }) => {
         <div>
           {props.users.slice(0, 10).map((user) => (
             <div key={user.id} className={classes.user_item}>
-              <p>{user.orgName}</p>
+              <p>{user.orgName.split('-')[0]}</p>
               <p>{user.userName}</p>
+              {console.log(
+                new Date(user.createdAt).toLocaleString('default', {
+                  month: 'short',
+                })
+              )}
               <p>{user.email}</p>
               <p>{user.phoneNumber}</p>
-              <p>{user.createdAt}</p>
+              <p>
+                {new Date(user.createdAt).toLocaleString('default', {
+                  month: 'short',
+                })}{' '}
+                {new Date(user.createdAt).getDate()},{' '}
+                {new Date(user.createdAt).getUTCFullYear()}
+              </p>
               <p>{'Active'}</p>
             </div>
           ))}

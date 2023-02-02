@@ -10,12 +10,8 @@
   margin: 30px 0;
 
   &_header {
-    // display: flex;
-    // align-items: center;
-    // justify-content: space-between;
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    // align-items: center;
+    grid-template-columns: 1fr 1fr 2fr 2fr 1fr 1fr;
     gap: 1rem;
 
     p {
@@ -37,12 +33,11 @@
   .user_item {
     padding: 20px 0;
     border-bottom: 1px solid $secondary-light;
-    font-size: 14px;
+    font-size: 13px;
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: 1fr 1fr 2fr 2fr 1fr 1fr;
     // align-items: center;
     gap: 1rem;
-    // justify-content: space-between;
     text-transform: capitalize;
 
     &:last-child {
