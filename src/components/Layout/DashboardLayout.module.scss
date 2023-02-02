@@ -8,6 +8,18 @@
   background: $light-gray-color;
 
   &_body {
-    padding: 3.5rem;
+    padding: 2rem 1rem;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .main_body {
+    padding: 2rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .main_body {
+    padding: 4rem;
   }
 }

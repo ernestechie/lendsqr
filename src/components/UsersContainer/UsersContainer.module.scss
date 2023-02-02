@@ -1,0 +1,44 @@
+@import '../../global/variables';
+
+.users {
+  width: 100%;
+  background: #fff;
+  border: 1px solid rgba(33, 63, 125, 0.06);
+  box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 4px;
+  padding: 30px;
+  margin: 30px 0;
+
+  &_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+
+    p {
+      text-transform: uppercase;
+      display: flex;
+      font-size: 12px;
+      font-weight: 600;
+      align-items: center;
+      gap: 4px;
+      color: $secondary-color;
+    }
+  }
+
+  .no_users {
+    padding: 30px 0;
+    color: $secondary-color;
+  }
+
+  .user_item {
+    padding: 20px 0;
+    border-bottom: 1px solid $secondary-light;
+    font-size: 14px;
+
+    &:last-child {
+      border: none;
+      padding-bottom: 0;
+    }
+  }
+}

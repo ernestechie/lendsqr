@@ -1,0 +1,15 @@
+@import '../../global/variables';
+
+.heading {
+  margin-bottom: 30px;
+}
+
+.fetch_button {
+  background: $accent-color;
+  color: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+  font-size: 14px;
+  font-weight: 600;
+  margin: 2rem 1rem;
+}

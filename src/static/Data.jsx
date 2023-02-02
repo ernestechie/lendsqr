@@ -9,10 +9,10 @@ import {
   FaUserCog,
   FaClipboardList,
 } from 'react-icons/fa';
-import { IoReceiptSharp } from 'react-icons/io5';
+import { IoReceiptSharp, IoReceipt } from 'react-icons/io5';
 import { AiOutlineTransaction, AiOutlineBarChart } from 'react-icons/ai';
 import { RiBankFill } from 'react-icons/ri';
-import { HiUsers, HiBadgeCheck } from 'react-icons/hi';
+import { HiUsers, HiBadgeCheck, HiOutlineUsers } from 'react-icons/hi';
 import {
   GiCash,
   GiReceiveMoney,
@@ -48,4 +48,35 @@ export const sidebarDataThree = [
   { name: 'Preferences', icon: <GiSettingsKnobs /> },
   { name: 'Fees and Prices', icon: <HiBadgeCheck /> },
   { name: 'Audits and Logs', icon: <FaClipboardList /> },
+];
+
+export const statCardsData = [
+  {
+    name: 'Users',
+    value: 2453,
+    icon: <HiOutlineUsers />,
+    color: 'rgba(223, 24, 255, 1)',
+    background: 'rgba(223, 24, 255, 0.1)',
+  },
+  {
+    name: 'Active Users',
+    value: 2453,
+    icon: <FaUsers />,
+    color: 'rgba(87, 24, 255, 1)',
+    background: 'rgba(87, 24, 255, 0.1)',
+  },
+  {
+    name: 'Users with loans',
+    value: 12453,
+    icon: <IoReceipt />,
+    color: 'rgba(245, 95, 68, 1)',
+    background: 'rgba(245, 95, 68, 0.1)',
+  },
+  {
+    name: 'Users with savings',
+    value: 102453,
+    icon: <FaCoins />,
+    color: 'rgba(255, 51, 102, 1)',
+    background: 'rgba(255, 51, 102, 0.1)',
+  },
 ];

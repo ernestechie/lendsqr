@@ -21,8 +21,6 @@ const DashboardLayout = (props: {
             transition: '0.3s ease-in',
           }}
         >
-          {props.children}
-
           <button
             type='button'
             title='sidebar toggle button'
@@ -31,6 +29,7 @@ const DashboardLayout = (props: {
           >
             {sidebarOpen ? 'Close Sidebar' : 'Open Sidebar'}
           </button>
+          {props.children}
         </div>
       </main>
     </>
