@@ -1,65 +1,139 @@
 import React from 'react';
 import classes from './UsersContainer.module.scss';
-import { BsFilter } from 'react-icons/bs';
+import {
+  BsFilter,
+  BsArrowLeftSquareFill,
+  BsArrowRightSquareFill,
+} from 'react-icons/bs';
+import { userType } from '../../types/users';
+import { useState } from 'react';
 
-const UsersContainer = (props: { users: Array<Object> }) => {
+const UsersContainer = (props: { users: userType }) => {
+  const [page, setPage] = useState(0);
+  const [pageLimit, setPageLimit] = useState(10);
+
+  const setPageAndPageLimit = (input: number) => {
+    if (input === 1) {
+      setPage(0);
+      setPageLimit(10 * input);
+    } else {
+      setPage(input * 10 - 10);
+      setPageLimit(10 * input);
+    }
+  };
+
+  const goBack = () => {
+    if (page === 0) {
+      return;
+    } else {
+      setPage((prev) => prev - 10);
+      setPageLimit((prev) => prev - 10);
+    }
+  };
+
+  const goFront = () => {
+    if (pageLimit === 100) {
+      return;
+    } else {
+      setPage((prev) => prev + 10);
+      setPageLimit((prev) => prev + 10);
+    }
+  };
+
   return (
-    <div className={classes.users}>
-      <div className={classes.users_header}>
-        <p>
-          Organisation
-          <BsFilter />
-        </p>
-        <p>
-          Username
-          <BsFilter />
-        </p>
-        <p>
-          Email
-          <BsFilter />
-        </p>
-        <p>
-          Phone number
-          <BsFilter />
-        </p>
-        <p>
-          Date joined
-          <BsFilter />
-        </p>
-        <p>
-          Status
-          <BsFilter />
-        </p>
+    <div>
+      <div className={classes.users}>
+        <div className={classes.users_header}>
+          <p>
+            Organisation
+            <BsFilter />
+          </p>
+          <p>
+            Username
+            <BsFilter />
+          </p>
+          <p>
+            Email
+            <BsFilter />
+          </p>
+          <p>
+            Phone number
+            <BsFilter />
+          </p>
+          <p>
+            Date joined
+            <BsFilter />
+          </p>
+          <p>
+            Status
+            <BsFilter />
+          </p>
+        </div>
+
+        {!props.users && <h2 className={classes.no_users}>NO USERS</h2>}
+        {props.users && (
+          <>
+            {props.users.slice(page, pageLimit).map((user: userType) => (
+              <div key={user.id} className={classes.user_item}>
+                <>
+                  <p>{user.orgName.split('-')[0]}</p>
+                  <p>{user.userName}</p>
+                  <p>{user.email}</p>
+                  <p>{user.phoneNumber}</p>
+                  <p>
+                    {new Date(user.createdAt).toLocaleString('default', {
+                      month: 'short',
+                    })}{' '}
+                    {new Date(user.createdAt).getDate()},{' '}
+                    {new Date(user.createdAt).getUTCFullYear()}{' '}
+                    {new Date(user.createdAt).getHours() < 10 && '0'}
+                    {new Date(user.createdAt).getHours()}:
+                    {new Date(user.createdAt).getMinutes() < 10 && '0'}
+                    {new Date(user.createdAt).getMinutes()}{' '}
+                    {new Date(user.createdAt).getHours() > 0 &&
+                    new Date(user.createdAt).getHours() < 12
+                      ? 'AM'
+                      : 'PM'}
+                  </p>
+                  <p>{'Active'}</p>
+                </>
+              </div>
+            ))}
+          </>
+        )}
       </div>
 
-      {!props.users.length > 0 && (
-        <h2 className={classes.no_users}>NO USERS</h2>
-      )}
-      {props.users.length > 0 && (
-        <div>
-          {props.users.slice(0, 10).map((user) => (
-            <div key={user.id} className={classes.user_item}>
-              <p>{user.orgName.split('-')[0]}</p>
-              <p>{user.userName}</p>
-              {console.log(
-                new Date(user.createdAt).toLocaleString('default', {
-                  month: 'short',
-                })
-              )}
-              <p>{user.email}</p>
-              <p>{user.phoneNumber}</p>
-              <p>
-                {new Date(user.createdAt).toLocaleString('default', {
-                  month: 'short',
-                })}{' '}
-                {new Date(user.createdAt).getDate()},{' '}
-                {new Date(user.createdAt).getUTCFullYear()}
-              </p>
-              <p>{'Active'}</p>
-            </div>
-          ))}
+      <div className={classes.filter}>
+        <p>Showing {pageLimit} out of 100</p>
+        <div className={classes.pagination}>
+          <button
+            type='button'
+            title='go back button'
+            onClick={goBack}
+            className={`${
+              pageLimit === 10 ? classes.btn_disabled : classes.btn_active
+            }`}
+          >
+            <BsArrowLeftSquareFill />
+          </button>
+          <span onClick={() => setPageAndPageLimit(1)}>1</span>
+          <span onClick={() => setPageAndPageLimit(2)}>2</span>
+          <span onClick={() => setPageAndPageLimit(3)}>3</span>
+          <span>...</span>
+          <span onClick={() => setPageAndPageLimit(9)}>9</span>
+          <span onClick={() => setPageAndPageLimit(10)}>10</span>
+          <button
+            type='button'
+            title='go font button'
+            onClick={goFront}
+            className={`${
+              pageLimit === 100 ? classes.btn_disabled : classes.btn_active
+            }`}
+          >
+            <BsArrowRightSquareFill />
+          </button>
         </div>
-      )}
+      </div>
     </div>
   );
 };
