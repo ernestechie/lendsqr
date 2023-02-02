@@ -39,7 +39,12 @@ const UsersContainer = (props: { users: Array<Object> }) => {
         <div>
           {props.users.slice(0, 10).map((user) => (
             <div key={user.id} className={classes.user_item}>
-              <p>{user.id}</p>
+              <p>{user.orgName}</p>
+              <p>{user.userName}</p>
+              <p>{user.email}</p>
+              <p>{user.phoneNumber}</p>
+              <p>{user.createdAt}</p>
+              <p>{'Active'}</p>
             </div>
           ))}
         </div>
