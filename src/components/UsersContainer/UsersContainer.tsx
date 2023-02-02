@@ -8,7 +8,7 @@ import {
 import { userType } from '../../types/users';
 import { useState } from 'react';
 
-const UsersContainer = (props: { users: userType }) => {
+const UsersContainer = (props: { users: userType[] }) => {
   const [page, setPage] = useState(0);
   const [pageLimit, setPageLimit] = useState(10);
 

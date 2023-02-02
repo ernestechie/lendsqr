@@ -7,4 +7,5 @@ export type userType = {
   createdAt: string;
   status: string;
   slice: Function;
+  users: Array<Object>;
 };

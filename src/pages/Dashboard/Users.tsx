@@ -2,10 +2,11 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { DashboardLayout, StatCards, UsersContainer } from '../../';
 import classes from './Users.module.scss';
+import { userType } from '../../types/users';
 
 const Users = () => {
   const [fetchingUsers, setFetchingUsers] = useState(false);
-  const [users, setUsers] = useState<[]>([]);
+  const [users, setUsers] = useState<userType[]>([]);
 
   useEffect(() => {
     const fetchUsersHandler = async () => {
