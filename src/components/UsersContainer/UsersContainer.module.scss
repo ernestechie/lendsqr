@@ -43,6 +43,29 @@
       border: none;
       padding-bottom: 0;
     }
+
+    span {
+      padding: 6px 12px;
+      border-radius: 48px;
+      font-size: 13px;
+      text-align: center;
+    }
+    .active {
+      color: rgba(57, 205, 98, 1);
+      background: rgba(57, 205, 98, 0.06);
+    }
+    .pending {
+      color: rgba(233, 178, 0, 1);
+      background: rgba(233, 178, 0, 0.1);
+    }
+    .blacklisted {
+      color: rgba(228, 3, 59, 1);
+      background: rgba(228, 3, 59, 0.1);
+    }
+    .inactive {
+      color: rgba(84, 95, 125, 1);
+      background: rgba(84, 95, 125, 0.06);
+    }
   }
 }
 
@@ -80,6 +103,24 @@
       svg {
         color: $secondary-light;
       }
+    }
+  }
+
+  .page_limit {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    span {
+      padding: 8px;
+      background: $secondary-light;
+      color: $primary-color;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      cursor: pointer;
+      font-weight: 600;
     }
   }
 }

@@ -7,6 +7,7 @@ import {
 } from 'react-icons/bs';
 import { userType } from '../../types/users';
 import { useState } from 'react';
+import { MdKeyboardArrowDown } from 'react-icons/md';
 
 const UsersContainer = (props: { users: userType[] }) => {
   const [page, setPage] = useState(0);
@@ -41,7 +42,7 @@ const UsersContainer = (props: { users: userType[] }) => {
   };
 
   return (
-    <div>
+    <>
       <div className={classes.users}>
         <div className={classes.users_header}>
           <p>
@@ -95,7 +96,20 @@ const UsersContainer = (props: { users: userType[] }) => {
                       ? 'AM'
                       : 'PM'}
                   </p>
-                  <p>{'Active'}</p>
+                  {2022 - new Date(user.createdAt).getUTCFullYear() < 0 && (
+                    <span className={classes.pending}>Pending</span>
+                  )}
+                  {2022 - new Date(user.createdAt).getUTCFullYear() >= 0 &&
+                    2022 - new Date(user.createdAt).getUTCFullYear() < 10 && (
+                      <span className={classes.active}>Active</span>
+                    )}
+                  {2022 - new Date(user.createdAt).getUTCFullYear() > 20 && (
+                    <span className={classes.blacklisted}>Blacklisted</span>
+                  )}
+                  {2022 - new Date(user.createdAt).getUTCFullYear() >= 10 &&
+                    2022 - new Date(user.createdAt).getUTCFullYear() < 20 && (
+                      <span className={classes.inactive}>Inactive</span>
+                    )}
                 </>
               </div>
             ))}
@@ -104,7 +118,14 @@ const UsersContainer = (props: { users: userType[] }) => {
       </div>
 
       <div className={classes.filter}>
-        <p>Showing {pageLimit} out of 100</p>
+        <div className={classes.page_limit}>
+          Showing{' '}
+          <span>
+            {pageLimit}
+            <MdKeyboardArrowDown />
+          </span>{' '}
+          out of 100
+        </div>
         <div className={classes.pagination}>
           <button
             type='button'
@@ -119,7 +140,9 @@ const UsersContainer = (props: { users: userType[] }) => {
           <span onClick={() => setPageAndPageLimit(1)}>1</span>
           <span onClick={() => setPageAndPageLimit(2)}>2</span>
           <span onClick={() => setPageAndPageLimit(3)}>3</span>
+          <span onClick={() => setPageAndPageLimit(4)}>4</span>
           <span>...</span>
+          <span onClick={() => setPageAndPageLimit(8)}>8</span>
           <span onClick={() => setPageAndPageLimit(9)}>9</span>
           <span onClick={() => setPageAndPageLimit(10)}>10</span>
           <button
@@ -134,7 +157,7 @@ const UsersContainer = (props: { users: userType[] }) => {
           </button>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
