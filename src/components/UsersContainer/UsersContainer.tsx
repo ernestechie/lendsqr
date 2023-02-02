@@ -7,11 +7,14 @@ import {
 } from 'react-icons/bs';
 import { userType } from '../../types/users';
 import { useState } from 'react';
-import { MdKeyboardArrowDown } from 'react-icons/md';
+import { MdKeyboardArrowDown, MdOutlineMoreVert } from 'react-icons/md';
+import { UserPopup } from '../../';
 
 const UsersContainer = (props: { users: userType[] }) => {
   const [page, setPage] = useState(0);
   const [pageLimit, setPageLimit] = useState(10);
+  const [currentPopup, setCurrentPopup] = useState(0);
+  const [showPopup, setShowPopup] = useState(false);
 
   const setPageAndPageLimit = (input: number) => {
     if (input === 1) {
@@ -39,6 +42,11 @@ const UsersContainer = (props: { users: userType[] }) => {
       setPage((prev) => prev + 10);
       setPageLimit((prev) => prev + 10);
     }
+  };
+
+  const setPopup = (value: number) => {
+    setCurrentPopup(value);
+    setShowPopup((prev) => !prev);
   };
 
   return (
@@ -74,7 +82,7 @@ const UsersContainer = (props: { users: userType[] }) => {
         {!props.users && <h2 className={classes.no_users}>NO USERS</h2>}
         {props.users && (
           <>
-            {props.users.slice(page, pageLimit).map((user: userType) => (
+            {props.users.slice(page, pageLimit).map((user: userType, index) => (
               <div key={user.id} className={classes.user_item}>
                 <>
                   <p>{user.orgName.split('-')[0]}</p>
@@ -111,6 +119,15 @@ const UsersContainer = (props: { users: userType[] }) => {
                       <span className={classes.inactive}>Inactive</span>
                     )}
                 </>
+                <button
+                  type='button'
+                  title='more icon'
+                  className={classes.more_icon}
+                  onClick={() => setPopup(index)}
+                >
+                  <MdOutlineMoreVert />
+                </button>
+                {showPopup && currentPopup === index && <UserPopup />}
               </div>
             ))}
           </>

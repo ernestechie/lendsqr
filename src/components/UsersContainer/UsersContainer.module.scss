@@ -38,6 +38,7 @@
     grid-template-columns: 1fr 1fr 2fr 2fr 2fr 1fr;
     gap: 1rem;
     text-transform: capitalize;
+    position: relative;
 
     &:last-child {
       border: none;
@@ -65,6 +66,15 @@
     .inactive {
       color: rgba(84, 95, 125, 1);
       background: rgba(84, 95, 125, 0.06);
+    }
+
+    .more_icon {
+      position: absolute;
+      background: none;
+      font-size: 20px;
+      color: $secondary-color;
+      top: 22px;
+      right: -20px;
     }
   }
 }

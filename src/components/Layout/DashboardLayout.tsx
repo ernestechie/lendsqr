@@ -13,11 +13,11 @@ const DashboardLayout = (props: {
     <>
       <Navbar />
       <main className={classes.main} style={{}}>
-        <Sidebar width={sidebarOpen ? '240px' : '64px'} />
+        <Sidebar width={sidebarOpen ? '220px' : '52px'} />
         <div
           className={classes.main_body}
           style={{
-            width: sidebarOpen ? 'calc(100vw - 240px)' : 'calc(100vw - 64px)',
+            width: sidebarOpen ? 'calc(100vw - 220px)' : 'calc(100vw - 52px)',
             transition: '0.3s ease-in',
           }}
         >
