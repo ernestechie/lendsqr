@@ -1,0 +1,66 @@
+@import '../../global/variables.scss';
+
+.users_filter_popup {
+  position: absolute;
+  width: 270px;
+  height: 600px;
+  left: 20px;
+  bottom: 0;
+  background: #ffffff;
+  border: 1px solid rgba(84, 95, 125, 0.14);
+  box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 4px;
+  padding: 20px;
+
+  form {
+    width: 100%;
+
+    .input_div {
+      margin-bottom: 20px;
+
+      label {
+        color: $secondary-color;
+        font-size: 14px;
+        margin-bottom: 6px;
+      }
+
+      input,
+      select {
+        width: 100%;
+        background: #ffffff;
+        border: 1px solid $secondary-light;
+        border-radius: 8px;
+        padding: 12px 20px;
+        font-size: 14px;
+        font-family: inherit;
+      }
+    }
+  }
+
+  &_buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+
+    button {
+      padding: 12px;
+      width: 50%;
+      font-size: 14px;
+      border-radius: 8px;
+      font-weight: 600;
+
+      &:nth-child(1) {
+        border: 1px solid $primary-color;
+        background: none;
+        font-family: inherit;
+        color: $secondary-color;
+      }
+
+      &:nth-child(2) {
+        background: $accent-color;
+        color: #fff;
+      }
+    }
+  }
+}

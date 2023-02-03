@@ -34,13 +34,20 @@ const Users = () => {
     };
 
     const lsUsers = localStorage.getItem('users');
+    console.log(typeof lsUsers);
 
-    if (lsUsers) {
+    if (lsUsers !== 'undefined') {
+      console.log('Found LS Data...');
+
       setUsers(JSON.parse(lsUsers));
     } else {
-      fetchUsersHandler().then((snapshot) => {
-        localStorage.setItem('users', JSON.stringify(snapshot));
-      });
+      fetchUsersHandler()
+        .then((snapshot) => {
+          localStorage.setItem('users', JSON.stringify(snapshot));
+          console.log(snapshot);
+          setUsers(snapshot);
+        })
+        .catch((error) => console.log(error));
     }
   }, []);
 

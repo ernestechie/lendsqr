@@ -14,7 +14,10 @@ This is a solution for the assessment test for Lendqr frontend engineering candi
 
 - First clone the project onto your machine by running `git clone git@github.com:ernestechie/lendsqr-fe-test.git`
 
-- After cloning the project, navigate into the project directory and run
+- After cloning the project, install all necessary dependencies by running
+  `npm install`
+
+- After installing all the dependencies, navigate into the project directory and run
   `npm run dev`
 
 - The project should start running in your browser now.

@@ -8,7 +8,7 @@ import {
 import { userType } from '../../types/users';
 import { useState } from 'react';
 import { MdKeyboardArrowDown, MdOutlineMoreVert } from 'react-icons/md';
-import { UserPopup } from '../../';
+import { UserPopup, UsersFilterPopup } from '../../';
 import { truncate, parseDate } from '../../utils';
 
 const UsersContainer = (props: { users: userType[] }) => {
@@ -16,6 +16,7 @@ const UsersContainer = (props: { users: userType[] }) => {
   const [pageLimit, setPageLimit] = useState(10);
   const [currentPopup, setCurrentPopup] = useState(0);
   const [showPopup, setShowPopup] = useState(false);
+  const [showFilterPopup, setShowFilterPopup] = useState(false);
 
   const setPageAndPageLimit = (input: number) => {
     if (input === 1) {
@@ -48,6 +49,10 @@ const UsersContainer = (props: { users: userType[] }) => {
   const setPopup = (value: number) => {
     setCurrentPopup(value);
     setShowPopup((prev) => !prev);
+  };
+
+  const toggleFilterPopupHandler = () => {
+    setShowFilterPopup((prev) => !prev);
   };
 
   return (
@@ -119,12 +124,13 @@ const UsersContainer = (props: { users: userType[] }) => {
             ))}
           </>
         )}
+        {showFilterPopup && <UsersFilterPopup />}
       </div>
 
       <div className={classes.filter}>
         <div className={classes.page_limit}>
           Showing{' '}
-          <span>
+          <span onClick={toggleFilterPopupHandler}>
             {pageLimit}
             <MdKeyboardArrowDown />
           </span>{' '}

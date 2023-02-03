@@ -2,6 +2,7 @@ export { default as Navbar } from './components/Navbar/Navbar';
 export { default as StatCards } from './components/StatCards/StatCards';
 export { default as UsersContainer } from './components/UsersContainer/UsersContainer';
 export { default as UserPopup } from './components/UsersContainer/UserPopup';
+export { default as UsersFilterPopup } from './components/UsersContainer/UsersFilterPopup';
 export { default as StatCard } from './components/StatCards/StatCard';
 export { default as SearchBar } from './components/Navbar/SearchBar/SearchBar';
 export { default as UserAvatar } from './components/Navbar/UserAvatar/UserAvatar';
