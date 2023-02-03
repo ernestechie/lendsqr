@@ -9,6 +9,7 @@ import { userType } from '../../types/users';
 import { useState } from 'react';
 import { MdKeyboardArrowDown, MdOutlineMoreVert } from 'react-icons/md';
 import { UserPopup } from '../../';
+import { truncate, parseDate } from '../../utils';
 
 const UsersContainer = (props: { users: userType[] }) => {
   const [page, setPage] = useState(0);
@@ -85,25 +86,11 @@ const UsersContainer = (props: { users: userType[] }) => {
             {props.users.slice(page, pageLimit).map((user: userType, index) => (
               <div key={user.id} className={classes.user_item}>
                 <>
-                  <p>{user.orgName.split('-')[0]}</p>
-                  <p>{user.userName}</p>
-                  <p>{user.email}</p>
+                  <p>{truncate(user.orgName)}</p>
+                  <p>{truncate(user.userName)}</p>
+                  <p>{truncate(user.email)}</p>
                   <p>{user.phoneNumber}</p>
-                  <p>
-                    {new Date(user.createdAt).toLocaleString('default', {
-                      month: 'short',
-                    })}{' '}
-                    {new Date(user.createdAt).getDate()},{' '}
-                    {new Date(user.createdAt).getUTCFullYear()}{' '}
-                    {new Date(user.createdAt).getHours() < 10 && '0'}
-                    {new Date(user.createdAt).getHours()}:
-                    {new Date(user.createdAt).getMinutes() < 10 && '0'}
-                    {new Date(user.createdAt).getMinutes()}{' '}
-                    {new Date(user.createdAt).getHours() > 0 &&
-                    new Date(user.createdAt).getHours() < 12
-                      ? 'AM'
-                      : 'PM'}
-                  </p>
+                  <p>{parseDate(user.createdAt)}</p>
                   {2022 - new Date(user.createdAt).getUTCFullYear() < 0 && (
                     <span className={classes.pending}>Pending</span>
                   )}
