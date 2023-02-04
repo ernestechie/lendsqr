@@ -36,7 +36,7 @@ const Users = () => {
     const lsUsers = localStorage.getItem('users');
     console.log(typeof lsUsers);
 
-    if (lsUsers !== 'undefined') {
+    if (lsUsers) {
       console.log('Found LS Data...');
 
       setUsers(JSON.parse(lsUsers));
