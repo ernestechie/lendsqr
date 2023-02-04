@@ -10,6 +10,7 @@ import { useState } from 'react';
 import { MdKeyboardArrowDown, MdOutlineMoreVert } from 'react-icons/md';
 import { UserPopup, UsersFilterPopup } from '../../';
 import { truncate, parseDate } from '../../utils';
+import { Link } from 'react-router-dom';
 
 const UsersContainer = (props: { users: userType[] }) => {
   const [page, setPage] = useState(0);
@@ -92,7 +93,9 @@ const UsersContainer = (props: { users: userType[] }) => {
               <div key={user.id} className={classes.user_item}>
                 <>
                   <p>{truncate(user.orgName)}</p>
-                  <p>{truncate(user.userName)}</p>
+                  <Link to={`/dashboard/${user.id}`}>
+                    <p>{truncate(user.userName)}</p>
+                  </Link>
                   <p>{truncate(user.email)}</p>
                   <p>{user.phoneNumber}</p>
                   <p>{parseDate(user.createdAt)}</p>
@@ -119,7 +122,9 @@ const UsersContainer = (props: { users: userType[] }) => {
                 >
                   <MdOutlineMoreVert />
                 </button>
-                {showPopup && currentPopup === index && <UserPopup />}
+                {showPopup && currentPopup === index && (
+                  <UserPopup id={user.id} />
+                )}
               </div>
             ))}
           </>
