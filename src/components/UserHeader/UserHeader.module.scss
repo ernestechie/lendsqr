@@ -2,12 +2,14 @@
 
 .user {
   width: 100%;
-  height: 210px;
   background: #ffffff;
   border: 1px solid rgba(33, 63, 125, 0.06);
   box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
   border-radius: 4px;
   padding: 16px;
+  display: grid;
+  grid-template-columns: 1;
+  gap: 30px;
 
   &_details {
     display: flex;
@@ -18,6 +20,8 @@
       display: flex;
       flex-direction: column;
       gap: 8px;
+      padding-right: 30px;
+      border-right: 1px solid $secondary-light;
 
       .name {
         font-size: 22px;
@@ -32,10 +36,33 @@
       }
     }
   }
+
+  &_tier {
+    border-right: 1px solid $secondary-light;
+
+    &_rating {
+      margin-top: 8px;
+      color: $yellow;
+    }
+  }
+
+  &_account .balance {
+    margin-bottom: 8px;
+  }
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 768px) {
   .user {
     padding: 24px;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .user {
+    padding: 24px;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
   }
 }
