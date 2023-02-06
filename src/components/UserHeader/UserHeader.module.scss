@@ -6,63 +6,116 @@
   border: 1px solid rgba(33, 63, 125, 0.06);
   box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
   border-radius: 4px;
-  padding: 16px;
-  display: grid;
-  grid-template-columns: 1;
-  gap: 30px;
 
-  &_details {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+  &_grid {
+    padding: 16px;
+    display: grid;
+    grid-template-columns: 1;
+    gap: 30px;
 
-    .name_and_id {
+    &_details {
       display: flex;
-      flex-direction: column;
-      gap: 8px;
-      padding-right: 30px;
+      align-items: center;
+      gap: 20px;
+
+      .avatar {
+        border-radius: 50%;
+      }
+
+      .name_and_id {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding-right: 30px;
+        border-right: 1px solid $secondary-light;
+
+        .name {
+          font-size: 22px;
+          font-weight: 600;
+          color: $primary-color;
+        }
+        .id {
+          font-weight: 400;
+          font-size: 14px;
+          color: $secondary-color;
+          text-transform: uppercase;
+        }
+      }
+    }
+
+    &_tier {
       border-right: 1px solid $secondary-light;
 
-      .name {
-        font-size: 22px;
-        font-weight: 600;
-        color: $primary-color;
+      &_rating {
+        margin-top: 8px;
+        color: $yellow;
       }
-      .id {
-        font-weight: 400;
-        font-size: 14px;
-        color: $secondary-color;
-        text-transform: uppercase;
-      }
+    }
+
+    &_account .balance {
+      margin-bottom: 8px;
     }
   }
 
-  &_tier {
-    border-right: 1px solid $secondary-light;
+  &_nav {
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    list-style: none;
+    width: 100%;
+    padding: 0 10px;
+    font-size: 14px;
 
-    &_rating {
-      margin-top: 8px;
-      color: $yellow;
+    li {
+      padding: 10px;
+      width: 90%;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.3s ease-out;
+      border-bottom: 2px solid #fff;
+
+      &:nth-child(1) {
+        color: $accent-color;
+        border-bottom: 2px solid $accent-color;
+      }
+
+      &:hover {
+        color: $accent-color;
+        border-bottom: 2px solid $accent-color;
+        transition: 0.3s ease-in;
+      }
     }
-  }
-
-  &_account .balance {
-    margin-bottom: 8px;
   }
 }
 
 @media screen and (min-width: 768px) {
-  .user {
+  .user_grid {
     padding: 24px;
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
   }
+
+  .user_nav {
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 @media screen and (min-width: 1024px) {
-  .user {
+  .user_grid {
     padding: 24px;
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
+  }
+
+  .user_nav {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .user_nav {
+    grid-template-columns: repeat(6, 1fr);
   }
 }

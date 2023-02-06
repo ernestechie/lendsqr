@@ -1,0 +1,30 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1;
+  padding: 24px 0;
+  gap: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media screen and (min-width: 1360px) {
+  .grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}

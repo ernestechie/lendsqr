@@ -5,10 +5,15 @@ import classes from './UserDetails.module.scss';
 import { userType } from '../../types/users';
 import { HiOutlineArrowNarrowLeft } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
+import UserDetailsComponent from '../../components/UserDetails/UserDetails';
+import { useParams } from 'react-router-dom';
+import { QueryParams } from '../../types/params';
+import useFetchUserDetails from '../../utils/useFetchUserDetails';
 
 const UserDetails = () => {
-  const [fetchingUserDetails, setFetchingUserDetails] = useState(false);
-  const [userDetails, setUserDetails] = useState<userType[]>([]);
+  const { userID } = useParams<QueryParams>();
+
+  const { user, fetchingUser } = useFetchUserDetails(userID!);
 
   return (
     <DashboardLayout>
@@ -23,7 +28,15 @@ const UserDetails = () => {
           <button type='button'>Activate User</button>
         </div>
       </div>
-      <UserHeader />
+      {fetchingUser && <h1>Fetching user details...</h1>}
+      {user && !fetchingUser ? (
+        <div>
+          <UserHeader user={user!} fetchingUser={fetchingUser} />
+          <UserDetailsComponent user={user!} fetchingUser={fetchingUser} />
+        </div>
+      ) : (
+        <h1>User not found</h1>
+      )}
     </DashboardLayout>
   );
 };

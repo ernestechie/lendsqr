@@ -52,16 +52,24 @@ body {
 
 // TEXT SIZES
 
+.text-xs {
+  font-size: 12px;
+  line-height: 1.5;
+}
+
 .text-sm {
   font-size: 14px;
+  line-height: 1.5;
 }
 
 .text-lg {
   font-size: 20px;
+  line-height: 2;
 }
 
 .text-xl {
   font-size: 24px;
+  line-height: 2;
 }
 
 .font-bold {
